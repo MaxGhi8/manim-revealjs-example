@@ -2,7 +2,7 @@ from manim import *
 from manim_revealjs import PresentationScene, COMPLETE_LOOP
 from random import shuffle
 
-config.video_dir = "./videos"
+config.video_dir = "./videos" # mandatory for Manim-RevealJS
 
 def piramyd(n):
     return VGroup(*[
@@ -17,6 +17,7 @@ class DemoScene(PresentationScene):
         self.end_fragment()
 
     def construct(self):
+        ##=========================##
         title = Tex("This is a presentation made in \\sc Manim-RevealJS", color=WHITE)
         title_ul = Underline(title)
         title_ul_bk = Rectangle(width=title.width,height=title.height*1.6)\
@@ -45,6 +46,7 @@ class DemoScene(PresentationScene):
 
 
         self.end_fragment() # <- Pause here
+        ##=========================##
         # Start loop here
 
         self.play(LaggedStart(*list(map(Create,mobs))))
@@ -60,6 +62,7 @@ class DemoScene(PresentationScene):
         self.play(p.animate.arrange(DOWN,buff=0,aligned_edge=LEFT))
 
         self.end_fragment()
+        ##=========================##
 
         p_ = p.copy()
         self.add(p_)
@@ -73,6 +76,7 @@ class DemoScene(PresentationScene):
                 )
 
         self.end_fragment()
+        ##=========================##
 
         del down_brace1, down_brace1_label, left_brace1, left_brace2_label
         self.wait(0.5)
@@ -111,4 +115,5 @@ class DemoScene(PresentationScene):
                 )
         self.wait(2)
         self.end_fragment()
+        ##=========================##
 
